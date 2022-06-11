@@ -2,13 +2,12 @@ import { PlantType } from '../types';
 
 interface PlantCardProps {
   plant: PlantType;
-  onClick: () => void;
 }
 
-export default function PlantCard({ plant, onClick }: PlantCardProps) {
+export default function PlantCard({ plant }: PlantCardProps) {
   return (
-    <li key={plant.source} className="relative" onClick={onClick}>
-      <div className="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+    <li key={plant.source} className="relative">
+      <div className="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden">
         <img
           src={plant.source}
           alt=""

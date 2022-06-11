@@ -1,6 +1,11 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
+import {
+  LinkIcon,
+  PlusSmIcon,
+  QuestionMarkCircleIcon,
+} from '@heroicons/react/solid';
 
 export default function Slideover({
   show,
@@ -11,7 +16,7 @@ export default function Slideover({
 }) {
   return (
     <Transition.Root show={show} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={onClose}>
+      <Dialog as="div" className="relative z-10" onClose={() => onClose(false)}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -37,44 +42,121 @@ export default function Slideover({
                 leaveTo="translate-x-full"
               >
                 <Dialog.Panel className="pointer-events-auto relative w-screen max-w-md">
-                  <Transition.Child
-                    as={Fragment}
-                    enter="ease-in-out duration-500"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="ease-in-out duration-500"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                  >
-                    <div className="absolute top-0 left-0 -ml-8 flex pt-4 pr-2 sm:-ml-10 sm:pr-4">
-                      <button
-                        type="button"
-                        className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                        onClick={onClose}
-                      >
-                        <span className="sr-only">Close panel</span>
-                        <XIcon className="h-6 w-6" aria-hidden="true" />
-                      </button>
-                    </div>
-                  </Transition.Child>
-                  <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
-                    <div className="px-4 sm:px-6">
-                      <Dialog.Title className="text-lg font-medium text-gray-900">
-                        {' '}
-                        Panel title{' '}
-                      </Dialog.Title>
-                    </div>
-                    <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                      {/* Replace with your content */}
-                      <div className="absolute inset-0 px-4 sm:px-6">
-                        <div
-                          className="h-full border-2 border-dashed border-gray-200"
-                          aria-hidden="true"
-                        />
+                  <form className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                    <div className="flex-1">
+                      {/* Header */}
+                      <div className="bg-gray-50 px-4 py-6 sm:px-6">
+                        <div className="flex items-start justify-between space-x-3">
+                          <div className="space-y-1">
+                            <Dialog.Title className="text-lg font-medium text-gray-900">
+                              {' '}
+                              New plant{' '}
+                            </Dialog.Title>
+                            <p className="text-sm text-gray-500">
+                              Add a new plant to your garden by filling in the
+                              information below.
+                            </p>
+                          </div>
+                          <div className="flex h-7 items-center">
+                            <button
+                              type="button"
+                              className="text-gray-400 hover:text-gray-500"
+                              onClick={() => onClose(false)}
+                            >
+                              <span className="sr-only">Close panel</span>
+                              <XIcon className="h-6 w-6" aria-hidden="true" />
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                      {/* /End replace */}
+
+                      {/* Divider container */}
+                      <div className="space-y-6 py-6 sm:space-y-0 sm:divide-y sm:divide-gray-200 sm:py-0">
+                        {/* Plant name */}
+                        <div className="space-y-1 px-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5">
+                          <div>
+                            <label
+                              htmlFor="plant-name"
+                              className="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2"
+                            >
+                              {' '}
+                              Plant name{' '}
+                            </label>
+                          </div>
+                          <div className="sm:col-span-2">
+                            <input
+                              type="text"
+                              name="plant-name"
+                              id="plant-name"
+                              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Plant species */}
+                        <div className="space-y-1 px-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5">
+                          <div>
+                            <label
+                              htmlFor="plant-species"
+                              className="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2"
+                            >
+                              {' '}
+                              Plant species{' '}
+                            </label>
+                          </div>
+                          <div className="sm:col-span-2">
+                            <input
+                              type="text"
+                              name="plant-species"
+                              id="plant-species"
+                              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Plant description */}
+                        <div className="space-y-1 px-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5">
+                          <div>
+                            <label
+                              htmlFor="plant-description"
+                              className="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2"
+                            >
+                              {' '}
+                              Description{' '}
+                            </label>
+                          </div>
+                          <div className="sm:col-span-2">
+                            <textarea
+                              id="plant-description"
+                              name="plant-description"
+                              rows={3}
+                              className="block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                              defaultValue={''}
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+
+                    {/* Action buttons */}
+                    <div className="flex-shrink-0 border-t border-gray-200 px-4 py-5 sm:px-6">
+                      <div className="flex justify-end space-x-3">
+                        <button
+                          type="button"
+                          className="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                          onClick={() => onClose(false)}
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="submit"
+                          className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        >
+                          Create
+                        </button>
+                      </div>
+                    </div>
+                  </form>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
