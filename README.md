@@ -1,6 +1,6 @@
 # My Green Thumb Demo App
 
-A demo gardening app using React, Redux, Vite, MSW, and Cypress.
+A demo gardening app using: React, Redux, TailwindCSS, Vite, MSW, and Cypress.
 
 ## Installation
 
