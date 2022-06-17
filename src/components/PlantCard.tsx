@@ -1,10 +1,11 @@
+import Button from './Button';
 import { PlantType } from '../types';
 import { useAppDispatch, setSelectedPlant } from '../app/index';
 interface PlantCardProps {
   plant: PlantType;
 }
 
-export default function PlantCard({ plant }: PlantCardProps) {
+const PlantCard = ({ plant }: PlantCardProps) => {
   const dispatch = useAppDispatch();
 
   return (
@@ -19,9 +20,9 @@ export default function PlantCard({ plant }: PlantCardProps) {
           alt=""
           className="object-cover pointer-events-none group-hover:opacity-75"
         />
-        <button type="button" className="absolute inset-0 focus:outline-none">
+        <Button type="button" className="absolute inset-0 focus:outline-none">
           <span className="sr-only">View details for {plant.title}</span>
-        </button>
+        </Button>
       </div>
       <p className="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">
         {plant.title}
@@ -31,4 +32,6 @@ export default function PlantCard({ plant }: PlantCardProps) {
       </p>
     </li>
   );
-}
+};
+
+export default PlantCard;

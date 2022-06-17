@@ -1,20 +1,19 @@
-import { ReactElement } from 'react';
+import React from 'react';
 
-interface ButtonProps {
-  icon?: ReactElement;
-  onClick: () => void;
-  text: string;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
 }
 
-export default function Button({ icon, onClick, text }: ButtonProps) {
+const Button = ({ children, ...props }: ButtonProps) => {
   return (
     <button
       type="button"
       className="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black-500"
-      onClick={onClick}
+      {...props}
     >
-      {icon}
-      {text}
+      {children}
     </button>
   );
-}
+};
+
+export default Button;

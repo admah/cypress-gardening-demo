@@ -9,7 +9,7 @@ import Button from './Button';
 
 import { useGetPlantsQuery } from '../app/services/plants';
 
-export default function PlantCardList() {
+const PlantCardList = () => {
   const dispatch = useAppDispatch();
 
   const { isLoading } = useGetPlantsQuery();
@@ -30,10 +30,9 @@ export default function PlantCardList() {
         <h1 className="py-1.5 text-xl font-semibold text-gray-900">
           My Plants
         </h1>
-        <Button
-          text="Add plant"
-          onClick={() => dispatch(setShowAddPlantForm())}
-        />
+        <Button onClick={() => dispatch(setShowAddPlantForm())}>
+          Add Plant
+        </Button>
       </div>
 
       <ul
@@ -46,4 +45,6 @@ export default function PlantCardList() {
       </ul>
     </>
   );
-}
+};
+
+export default PlantCardList;
