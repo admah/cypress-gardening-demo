@@ -11,7 +11,7 @@ import {
 import CreatePlantForm from './CreatePlantForm';
 import PlantDetail from './PlantDetail';
 
-const Slideover = () => {
+const Slideover: React.FC = () => {
   const dispatch = useAppDispatch();
   const showSlideover = useAppSelector(selectShowSlideover);
   const selectedPlant = useAppSelector(selectSelectedPlant);

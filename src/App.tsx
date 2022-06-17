@@ -1,6 +1,6 @@
 import { Navigation, PlantCardList, Slideover } from './components';
 
-export default function Homepage() {
+const Homepage: React.FC = () => {
   return (
     <>
       <div className="min-h-full">
@@ -21,4 +21,6 @@ export default function Homepage() {
       </div>
     </>
   );
-}
+};
+
+export default Homepage;

@@ -5,7 +5,7 @@ interface PlantCardProps {
   plant: PlantType;
 }
 
-const PlantCard = ({ plant }: PlantCardProps) => {
+const PlantCard: React.FC<PlantCardProps> = ({ plant }) => {
   const dispatch = useAppDispatch();
 
   return (

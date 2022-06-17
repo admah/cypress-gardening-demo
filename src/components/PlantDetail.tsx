@@ -4,7 +4,11 @@ import Button from './Button';
 import { PlantType } from '../types';
 import { useAppDispatch, setShowSlideover } from '../app/index';
 
-const PlantDetail = ({ plant }: { plant: PlantType }) => {
+interface PlantDetailProps {
+  plant: PlantType;
+}
+
+const PlantDetail: React.FC<PlantDetailProps> = ({ plant }) => {
   const dispatch = useAppDispatch();
 
   return (
