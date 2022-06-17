@@ -9,7 +9,7 @@ import Button from './Button';
 
 import { useGetPlantsQuery } from '../app/services/plants';
 
-const PlantCardList = () => {
+const PlantCardList: React.FC<> = () => {
   const dispatch = useAppDispatch();
 
   const { isLoading } = useGetPlantsQuery();

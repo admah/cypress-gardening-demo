@@ -4,7 +4,7 @@ import { XIcon } from '@heroicons/react/outline';
 import Button from './Button';
 import { useAppDispatch, setShowSlideover } from '../app/index';
 
-const CreatePlantForm: React.FC = () => {
+const CreatePlantForm: React.FC<> = () => {
   const dispatch = useAppDispatch();
   return (
     <form className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
@@ -23,14 +23,14 @@ const CreatePlantForm: React.FC = () => {
               </p>
             </div>
             <div className="flex h-7 items-center">
-              <button
+              <Button
                 type="button"
                 className="text-gray-400 hover:text-gray-500"
                 onClick={() => dispatch(setShowSlideover(false))}
               >
                 <span className="sr-only">Close panel</span>
                 <XIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
+              </Button>
             </div>
           </div>
         </div>

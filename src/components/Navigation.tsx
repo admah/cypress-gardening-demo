@@ -4,7 +4,7 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 
 import PlantIcon from '../assets/plant.svg';
 
-const Navigation: React.FC = () => {
+const Navigation: React.FC<> = () => {
   return (
     <Disclosure as="nav" className="bg-white border-b border-gray-200">
       {({ open }) => (
