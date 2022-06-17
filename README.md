@@ -1,5 +1,7 @@
 # My Green Thumb Demo App
 
+![App Homepage](https://github.com/admah/cypress-gardening-demo/blob/master/public/demo.jpg)
+
 A demo gardening app using: React, Redux, TailwindCSS, Vite, MSW, and Cypress.
 
 ## Installation
