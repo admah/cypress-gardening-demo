@@ -4,11 +4,7 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 
 import PlantIcon from '../assets/plant.svg';
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}
-
-export default function Navigation() {
+const Navigation: React.FC = () => {
   return (
     <Disclosure as="nav" className="bg-white border-b border-gray-200">
       {({ open }) => (
@@ -46,4 +42,6 @@ export default function Navigation() {
       )}
     </Disclosure>
   );
-}
+};
+
+export default Navigation;

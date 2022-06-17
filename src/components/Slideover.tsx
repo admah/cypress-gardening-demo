@@ -11,7 +11,7 @@ import {
 import CreatePlantForm from './CreatePlantForm';
 import PlantDetail from './PlantDetail';
 
-export default function Slideover() {
+const Slideover = () => {
   const dispatch = useAppDispatch();
   const showSlideover = useAppSelector(selectShowSlideover);
   const selectedPlant = useAppSelector(selectSelectedPlant);
@@ -61,4 +61,6 @@ export default function Slideover() {
       </Dialog>
     </Transition.Root>
   );
-}
+};
+
+export default Slideover;

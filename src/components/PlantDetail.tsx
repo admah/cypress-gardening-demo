@@ -1,15 +1,10 @@
-import { Fragment } from 'react';
-import { XIcon, DotsVerticalIcon } from '@heroicons/react/outline';
-import { Transition, Menu } from '@headlessui/react';
+import { XIcon } from '@heroicons/react/outline';
 
+import Button from './Button';
 import { PlantType } from '../types';
 import { useAppDispatch, setShowSlideover } from '../app/index';
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}
-
-export default function PlantDetail({ plant }: { plant: PlantType }) {
+const PlantDetail = ({ plant }: { plant: PlantType }) => {
   const dispatch = useAppDispatch();
 
   return (
@@ -23,14 +18,14 @@ export default function PlantDetail({ plant }: { plant: PlantType }) {
             {plant.title}
           </h2>
           <div className="ml-3 flex h-7 items-center">
-            <button
+            <Button
               type="button"
               className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:ring-2 focus:ring-indigo-500"
               onClick={() => dispatch(setShowSlideover(false))}
             >
               <span className="sr-only">Close panel</span>
               <XIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -81,4 +76,6 @@ export default function PlantDetail({ plant }: { plant: PlantType }) {
       </div>
     </div>
   );
-}
+};
+
+export default PlantDetail;
