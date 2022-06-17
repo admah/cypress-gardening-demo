@@ -1,12 +1,18 @@
 import { PlantType } from '../types';
-
+import { useAppDispatch, setSelectedPlant } from '../app/index';
 interface PlantCardProps {
   plant: PlantType;
 }
 
 export default function PlantCard({ plant }: PlantCardProps) {
+  const dispatch = useAppDispatch();
+
   return (
-    <li key={plant.source} className="relative">
+    <li
+      key={plant.source}
+      className="relative"
+      onClick={() => dispatch(setSelectedPlant(plant))}
+    >
       <div className="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden">
         <img
           src={plant.source}

@@ -26,6 +26,11 @@ export const plantSlice = createSlice({
       ...state,
       plants: action.payload,
     }),
+    setShowAddPlantForm: (state: IPlantState): IPlantState => ({
+      ...state,
+      selectedPlant: null,
+      showSlideover: true,
+    }),
     setShowSlideover: (
       state: IPlantState,
       action: PayloadAction<boolean>
@@ -39,25 +44,38 @@ export const plantSlice = createSlice({
     ): IPlantState => ({
       ...state,
       selectedPlant: action.payload,
+      showSlideover: true,
+    }),
+    addNewPlant: (
+      state: IPlantState,
+      action: PayloadAction<PlantType>
+    ): IPlantState => ({
+      ...state,
     }),
   },
   extraReducers: (builder) => {
     builder.addMatcher(
       plantsApi.endpoints.getPlants.matchFulfilled,
       (state, { payload }) => {
-        console.log('🚀 ~ file: plantSlice.ts ~ line 48 ~ payload', payload);
-        state.plants = payload.plants;
+        state.plants = payload;
       }
     );
   },
 });
 
-export const { setPlants, setShowSlideover, setSelectedPlant } =
-  plantSlice.actions;
+export const {
+  setPlants,
+  setShowSlideover,
+  setSelectedPlant,
+  setShowAddPlantForm,
+  addNewPlant,
+} = plantSlice.actions;
 
 export const selectPlants = (state: AppState): PlantType[] =>
   state.plant.plants;
 export const selectShowSlideover = (state: AppState): boolean =>
   state.plant.showSlideover;
+export const selectSelectedPlant = (state: AppState): PlantType | null =>
+  state.plant.selectedPlant;
 
 export default plantSlice.reducer;

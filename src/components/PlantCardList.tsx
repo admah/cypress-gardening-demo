@@ -2,7 +2,7 @@ import {
   useAppDispatch,
   useAppSelector,
   selectPlants,
-  setShowSlideover,
+  setShowAddPlantForm,
 } from '../app/index';
 import PlantCard from './PlantCard';
 import Button from './Button';
@@ -12,7 +12,7 @@ import { useGetPlantsQuery } from '../app/services/plants';
 export default function PlantCardList() {
   const dispatch = useAppDispatch();
 
-  const { data: plants, isLoading } = useGetPlantsQuery();
+  const { isLoading } = useGetPlantsQuery();
 
   const plantList = useAppSelector(selectPlants);
 
@@ -32,7 +32,7 @@ export default function PlantCardList() {
         </h1>
         <Button
           text="Add plant"
-          onClick={() => dispatch(setShowSlideover(true))}
+          onClick={() => dispatch(setShowAddPlantForm())}
         />
       </div>
 

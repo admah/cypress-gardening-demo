@@ -1,16 +1,6 @@
-import {
-  useAppDispatch,
-  useAppSelector,
-  setShowSlideover,
-  selectShowSlideover,
-} from './app/index';
-
 import { Navigation, PlantCardList, Slideover } from './components';
 
-export default function Example() {
-  const dispatch = useAppDispatch();
-  const showSlideover = useAppSelector(selectShowSlideover);
-
+export default function Homepage() {
   return (
     <>
       <div className="min-h-full">
@@ -22,10 +12,7 @@ export default function Example() {
               {/* Replace with your content */}
               <div className="px-4 py-8 sm:px-0">
                 <PlantCardList />
-                <Slideover
-                  show={showSlideover}
-                  onClose={() => dispatch(setShowSlideover(!showSlideover))}
-                />
+                <Slideover />
               </div>
               {/* /End replace */}
             </div>
