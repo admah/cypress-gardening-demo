@@ -4,7 +4,7 @@ import { XIcon } from '@heroicons/react/outline';
 import Button from './Button';
 import { useAppDispatch, setShowSlideover } from '../app/index';
 
-const CreatePlantForm: React.FC<> = () => {
+const CreatePlantForm: React.FC = () => {
   const dispatch = useAppDispatch();
   return (
     <form className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
