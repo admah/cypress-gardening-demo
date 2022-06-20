@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
 
@@ -6,8 +7,20 @@ import { useAppDispatch, setShowSlideover } from '../app/index';
 
 const CreatePlantForm: React.FC = () => {
   const dispatch = useAppDispatch();
+  const [plantName, setPlantName] = useState('');
+  const [plantSpecies, setPlantSpecies] = useState('');
+  const [plantDescription, setPlantDescription] = useState('');
+  const [plantLight, setPlantLight] = useState('');
+
+  const handleFormSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+  };
+
   return (
-    <form className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+    <form
+      className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+      onSubmit={handleFormSubmit}
+    >
       <div className="flex-1">
         {/* Header */}
         <div className="bg-gray-50 px-4 py-6 sm:px-6">
@@ -54,6 +67,8 @@ const CreatePlantForm: React.FC = () => {
                 name="plant-name"
                 id="plant-name"
                 className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                onChange={(e) => setPlantName(e.target.value)}
+                value={plantName}
               />
             </div>
           </div>
@@ -75,6 +90,8 @@ const CreatePlantForm: React.FC = () => {
                 name="plant-species"
                 id="plant-species"
                 className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                onChange={(e) => setPlantSpecies(e.target.value)}
+                value={plantSpecies}
               />
             </div>
           </div>
@@ -96,7 +113,8 @@ const CreatePlantForm: React.FC = () => {
                 name="plant-description"
                 rows={3}
                 className="block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                defaultValue={''}
+                onChange={(e) => setPlantDescription(e.target.value)}
+                value={plantDescription}
               />
             </div>
           </div>
@@ -112,12 +130,13 @@ const CreatePlantForm: React.FC = () => {
               </label>
             </div>
             <div className="sm:col-span-2">
-              <textarea
-                id="plant-light"
+              <input
+                type="text"
                 name="plant-light"
-                rows={3}
-                className="block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                defaultValue={''}
+                id="plant-light"
+                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                onChange={(e) => setPlantLight(e.target.value)}
+                value={plantLight}
               />
             </div>
           </div>
