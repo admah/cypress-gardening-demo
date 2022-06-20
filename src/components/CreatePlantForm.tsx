@@ -23,14 +23,14 @@ const CreatePlantForm: React.FC = () => {
               </p>
             </div>
             <div className="flex h-7 items-center">
-              <button
+              <Button
                 type="button"
                 className="text-gray-400 hover:text-gray-500"
                 onClick={() => dispatch(setShowSlideover(false))}
               >
                 <span className="sr-only">Close panel</span>
                 <XIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
+              </Button>
             </div>
           </div>
         </div>

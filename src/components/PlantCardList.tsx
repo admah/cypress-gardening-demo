@@ -15,6 +15,7 @@ const PlantCardList: React.FC = () => {
   const { isLoading } = useGetPlantsQuery();
 
   const plantList = useAppSelector(selectPlants);
+  console.log('🚀 ~ file: PlantCardList.tsx ~ line 18 ~ plantList', plantList);
 
   if (isLoading) {
     return <div>Loading...</div>;
